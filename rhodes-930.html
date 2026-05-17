@@ -42,7 +42,7 @@
   .intro-body strong { color: var(--ink); font-weight: 500; }
 
   /* PHOTO STRIP */
-  .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; height: 360px; gap: 4px; margin-bottom: 5rem; }
+  .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; height: 360px; gap: 4px; margin-bottom: 5rem; }
   .photo-strip-item { position: relative; overflow: hidden; }
   .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
   .photo-strip-item:hover img { transform: scale(1.04); }
@@ -172,11 +172,17 @@
   <div class="photo-strip-item">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Street_of_the_Knights,_Medieval_City_of_Rhodes,_Greece.jpg" alt="Rhodes Old Town" loading="lazy">
     <div class="photo-label">中世紀舊城 · MEDIEVAL OLD TOWN</div>
+    <div class="photo-credit">Wikimedia Commons</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=82&auto=format&fit=crop&crop=top" alt="Lindos Acropolis" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1592861956120-e524fc739696?w=600&q=80&auto=format&fit=crop'">
+    <div class="photo-label">林多斯衛城 · ACROPOLIS OF LINDOS</div>
     <div class="photo-credit">Unsplash</div>
   </div>
 </div>
 <div class="photo-strip-dots">
   <span class="ps-dot active"></span>
+  <span class="ps-dot"></span>
   <span class="ps-dot"></span>
   <span class="ps-dot"></span>
 </div>

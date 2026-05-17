@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9/30 羅德島一日行程</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #F5EFE0; --sand-dark: #E8DFC8;
+    --ink: #1A1410; --ink-muted: #5C4F3D; --ink-faint: #9C8E7A;
+    --aegean: #1B4F72; --aegean-light: #A8D8EA;
+    --terra: #C0392B; --terra-light: #E8C4B8;
+    --olive: #5D7A3E; --gold: #C9A84C; --gold-light: #F0DFA0;
+    --white: #FDFAF4;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif TC', serif; background: var(--sand); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+
+  /* HERO */
+  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem 3rem; overflow: hidden; }
+  .hero-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1759744869539-802c1b12b861?w=1600&q=85&auto=format&fit=crop'); background-size: cover; background-position: center 40%; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,25,40,0.2) 0%, rgba(10,25,40,0.1) 40%, rgba(10,25,40,0.75) 75%, rgba(10,25,40,0.93) 100%); }
+  .hero-ornament { position: absolute; top: 2.5rem; right: 3rem; width: 170px; height: 170px; border: 1px solid rgba(201,168,76,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .hero-ornament::before { content: ''; position: absolute; width: 140px; height: 140px; border: 1px solid rgba(201,168,76,0.18); border-radius: 50%; }
+  .hero-ornament-text { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(201,168,76,0.7); letter-spacing: 0.2em; text-align: center; line-height: 2; }
+  .hero-content { position: relative; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 12px; }
+  .hero-tag::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); opacity: 0.7; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 0.4rem; }
+  .hero-title em { font-style: italic; color: var(--aegean-light); }
+  .hero-subtitle { font-size: 0.95rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--gold); line-height: 1; }
+  .hero-stat-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: rgba(255,255,255,0.38); margin-top: 3px; }
+
+  /* INTRO */
+  .intro { padding: 5rem 3rem; max-width: 880px; margin: 0 auto; }
+  .intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--ink-faint); margin-bottom: 1.5rem; }
+  .intro-body { font-size: 1.1rem; color: var(--ink-muted); font-weight: 300; line-height: 1.95; border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+  .intro-body strong { color: var(--ink); font-weight: 500; }
+
+  /* PHOTO STRIP */
+  .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; height: 360px; gap: 4px; margin-bottom: 5rem; }
+  .photo-strip-item { position: relative; overflow: hidden; }
+  .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+  .photo-strip-item:hover img { transform: scale(1.04); }
+  .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1rem 0.75rem; background: linear-gradient(to top, rgba(10,25,40,0.82), transparent); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: rgba(255,255,255,0.8); }
+  .photo-credit { position: absolute; bottom: 5px; right: 8px; font-family: 'DM Mono', monospace; font-size: 7.5px; color: rgba(255,255,255,0.28); }
+
+  /* SECTION HEADER */
+  .section-header { padding: 0 3rem 1.5rem; max-width: 880px; margin: 0 auto; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--ink-faint); margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); }
+
+  /* TIMELINE */
+  .timeline-wrap { padding: 0 3rem 4rem; max-width: 880px; margin: 0 auto; }
+  .tl-item { display: grid; grid-template-columns: 72px 24px 1fr; gap: 0 1.2rem; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .tl-item.visible { opacity: 1; transform: none; }
+  .tl-time { text-align: right; padding-top: 1.2rem; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--ink-faint); line-height: 1.2; }
+  .tl-spine { display: flex; flex-direction: column; align-items: center; }
+  .tl-dot { width: 11px; height: 11px; border-radius: 50%; margin-top: 1.2rem; flex-shrink: 0; }
+  .dot-aegean { background: var(--aegean); } .dot-gold { background: var(--gold); } .dot-terra { background: var(--terra); } .dot-olive { background: var(--olive); } .dot-gray { background: var(--ink-faint); }
+  .tl-line { width: 1px; flex: 1; background: linear-gradient(to bottom, var(--sand-dark) 60%, transparent); min-height: 12px; }
+  .tl-card { background: var(--white); border: 0.5px solid var(--sand-dark); border-radius: 12px; padding: 1rem 1.3rem; margin: 0.65rem 0; }
+  .tl-card.has-photo { padding-bottom: 0; overflow: hidden; }
+  .tl-card-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tl-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+  .tl-badge { font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.05em; font-weight: 500; }
+  .badge-dur { background: var(--sand-dark); color: var(--ink-muted); } .badge-note { background: var(--terra-light); color: var(--terra); } .badge-tip { background: var(--gold-light); color: #7A5E1A; } .badge-free { background: #D5EAD0; color: var(--olive); }
+  .tl-card-body { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.75; }
+  .tl-card-tip { margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--sand-dark); font-size: 0.78rem; color: var(--ink-faint); display: flex; gap: 6px; align-items: flex-start; }
+  .tl-card-tip::before { content: '⌖'; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+  .tl-card-photo { width: calc(100% + 2.6rem); margin: 1rem -1.3rem 0; height: 200px; object-fit: cover; display: block; }
+  .tl-card-photo-credit { padding: 5px 1.3rem 9px; font-family: 'DM Mono', monospace; font-size: 7.5px; color: var(--ink-faint); letter-spacing: 0.04em; }
+  .phase-divider { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 1.8rem 0 0.4rem; }
+  .phase-divider-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-faint); white-space: nowrap; }
+  .phase-divider-line { flex: 1; height: 0.5px; background: var(--sand-dark); }
+
+  /* HIGHLIGHTS */
+  .highlights { background: var(--aegean); padding: 5rem 3rem; position: relative; overflow: hidden; }
+  .highlights::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(46,134,171,0.4) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.1) 0%, transparent 50%); }
+  .highlights-inner { position: relative; max-width: 880px; margin: 0 auto; }
+  .highlights-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 1rem; }
+  .highlights-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: #fff; margin-bottom: 3rem; }
+  .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.2rem; }
+  .hl-card { background: rgba(255,255,255,0.05); border: 0.5px solid rgba(168,216,234,0.2); border-radius: 12px; overflow: hidden; }
+  .hl-card-img { width: 100%; height: 150px; object-fit: cover; display: block; }
+  .hl-card-body { padding: 1rem; }
+  .hl-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.3rem; }
+  .hl-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; margin-bottom: 0.4rem; }
+  .hl-body { font-size: 0.82rem; color: rgba(253,250,244,0.5); line-height: 1.7; font-weight: 300; }
+
+  /* NOTES */
+  .notes { padding: 5rem 3rem; max-width: 880px; margin: 0 auto; }
+  .notes-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; color: var(--ink); }
+  .notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 1rem; }
+  .note-card { background: var(--white); border: 0.5px solid var(--sand-dark); border-radius: 10px; padding: 1.1rem; }
+  .note-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--ink-faint); margin-bottom: 6px; }
+  .note-val { font-size: 0.87rem; color: var(--ink-muted); line-height: 1.65; }
+  .note-val strong { color: var(--ink); font-weight: 500; }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--sand-dark); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-left, .footer-right { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.12em; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3rem 1.5rem; } .hero-ornament { display: none; } .hero-title { font-size: 3rem; }
+    .photo-strip { grid-template-columns: 1fr; height: auto; }
+    .photo-strip-item { height: 220px; } .photo-strip-item:nth-child(2), .photo-strip-item:nth-child(3) { display: none; }
+    .intro, .section-header, .timeline-wrap, .notes, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .highlights { padding: 3rem 1.5rem; }
+    .tl-item { grid-template-columns: 54px 20px 1fr; gap: 0 0.8rem; } .tl-time { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-ornament"><div class="hero-ornament-text">RHODES<br>GREECE<br>·<br>2026</div></div>
+  <div class="hero-content">
+    <div class="hero-tag">VIRGIN VOYAGES · GREEK ISLAND GLOW · DAY 4</div>
+    <h1 class="hero-title">羅德島<br><em>一日行程</em></h1>
+    <p class="hero-subtitle">2026年9月30日（週三）· 10人同行</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">7.5</div><div class="hero-stat-label">HOURS ASHORE</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">KEY STOPS</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">TRAVELLERS</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-eyebrow">ABOUT THIS DAY · 行程概覽</div>
+  <p class="intro-body">
+    船於 09:00 抵達羅德島，09:30 開放上岸，18:00 離港。我們有 <strong>7.5 小時</strong>可以自由運用。
+    行程分兩段：上午包私人小巴直奔南部的 <strong>林多斯（Lindos）</strong>，探訪千年衛城與隱密聖保羅灣；
+    下午回到羅德島城，悠閒漫遊 <strong>UNESCO 世界遺產中世紀舊城</strong>。
+    選擇包車而非船上官方行程，10 人同行省下約 <strong>$590 美元</strong>，時間更自由靈活。
+  </p>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1759744869539-802c1b12b861?w=1000&q=82&auto=format&fit=crop" alt="Lindos Acropolis panorama" loading="eager">
+    <div class="photo-label">林多斯衛城全景 · LINDOS ACROPOLIS</div>
+    <div class="photo-credit">© Maksim Shutov / Unsplash</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1519677584237-752f8853252e?w=600&q=82&auto=format&fit=crop&crop=center" alt="Greece bay" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=80&auto=format&fit=crop'">
+    <div class="photo-label">聖保羅灣 · ST. PAUL'S BAY</div>
+    <div class="photo-credit">Unsplash</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=82&auto=format&fit=crop&crop=center" alt="Rhodes Old Town" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80&auto=format&fit=crop'">
+    <div class="photo-label">中世紀舊城 · MEDIEVAL OLD TOWN</div>
+    <div class="photo-credit">Unsplash</div>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="section-label">ITINERARY · 行程時刻表</div>
+  <h2 class="section-title">今日安排</h2>
+</div>
+
+<div class="timeline-wrap">
+
+  <div class="tl-item">
+    <div></div><div></div>
+    <div class="phase-divider"><span class="phase-divider-label">上岸 · 出發</span><div class="phase-divider-line"></div></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">09:30</div>
+    <div class="tl-spine"><div class="tl-dot dot-aegean"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">上岸 · 集合</span><span class="tl-badge badge-dur">Piraeus Port</span></div>
+      <div class="tl-card-body">全員於港口集合，確認包車司機接送位置，準備出發。</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">09:45</div>
+    <div class="tl-spine"><div class="tl-dot dot-gray"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">包車出發 → Lindos</span><span class="tl-badge badge-dur">車程約 55 分鐘</span></div>
+      <div class="tl-card-body">10 人座私人小巴沿東海岸公路南下，沿途欣賞愛琴海沿岸風光。</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div></div><div></div>
+    <div class="phase-divider"><span class="phase-divider-label">林多斯 LINDOS</span><div class="phase-divider-line"></div></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10:40</div>
+    <div class="tl-spine"><div class="tl-dot dot-gold"></div><div class="tl-line"></div></div>
+    <div class="tl-card has-photo">
+      <div class="tl-card-head"><span class="tl-card-title">林多斯全景觀景台</span><span class="tl-badge badge-dur">10 分鐘</span></div>
+      <div class="tl-card-body">進村前路邊停靠拍照。衛城、白牆村莊、湛藍海灣一次全入鏡，是羅德島最具代表性的明信片構圖。</div>
+      <img class="tl-card-photo" src="https://images.unsplash.com/photo-1759744869539-802c1b12b861?w=900&q=82&auto=format&fit=crop" alt="Lindos panoramic viewpoint" loading="lazy">
+      <div class="tl-card-photo-credit">Photo: Maksim Shutov / Unsplash · Free to use under Unsplash License</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10:50</div>
+    <div class="tl-spine"><div class="tl-dot dot-gray"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">抵達 Lindos 停車場</span><span class="tl-badge badge-free">自由活動開始</span></div>
+      <div class="tl-card-body">司機在停車場等候，提供地圖與集合時間說明。步行 5 分鐘進入村中心。</div>
+      <div class="tl-card-tip">停車費約 €7 · Lindos 村內為徒步區，禁止車輛進入</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10:55</div>
+    <div class="tl-spine"><div class="tl-dot dot-terra"></div><div class="tl-line"></div></div>
+    <div class="tl-card has-photo">
+      <div class="tl-card-head">
+        <span class="tl-card-title">林多斯衛城 Acropolis of Lindos</span>
+        <span class="tl-badge badge-dur">約 75 分鐘</span>
+        <span class="tl-badge badge-note">建議優先</span>
+      </div>
+      <div class="tl-card-body">歷經古希臘、羅馬、拜占庭、鄂圖曼統治的千年要塞。攀登約 300 級台階至頂，俯瞰雅典娜神殿遺址與林多斯灣全景。建議一上岸就先衝衛城，避開正午人潮與高溫。</div>
+      <div class="tl-card-tip">門票 €20／人（非歐盟）· 建議提前線上購票，避免現場排隊 15–30 分鐘 · 穿舒適步行鞋</div>
+      <img class="tl-card-photo" src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=900&q=82&auto=format&fit=crop&crop=top" alt="Lindos Acropolis" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1592861956120-e524fc739696?w=900&q=80&auto=format&fit=crop'">
+      <div class="tl-card-photo-credit">Unsplash · Free to use under Unsplash License</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">12:10</div>
+    <div class="tl-spine"><div class="tl-dot dot-aegean"></div><div class="tl-line"></div></div>
+    <div class="tl-card has-photo">
+      <div class="tl-card-head"><span class="tl-card-title">聖保羅灣 St. Paul's Bay</span><span class="tl-badge badge-dur">約 25 分鐘</span></div>
+      <div class="tl-card-body">從村中心步行下坡約 10 分鐘可抵達。幾近圓形的隱密小灣，海水清澈碧藍，岸邊有白色小教堂。相傳西元 51 年使徒保羅曾在此登陸傳教。</div>
+      <div class="tl-card-tip">回程上坡較費力 · 腳力較弱者可在村內咖啡館等候</div>
+      <img class="tl-card-photo" src="https://images.unsplash.com/photo-1519677584237-752f8853252e?w=900&q=82&auto=format&fit=crop" alt="St Paul's Bay" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=900&q=80&auto=format&fit=crop'">
+      <div class="tl-card-photo-credit">Unsplash · Free to use under Unsplash License</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">12:35</div>
+    <div class="tl-spine"><div class="tl-dot dot-gold"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">午餐 · 逛林多斯村</span><span class="tl-badge badge-dur">約 60 分鐘</span></div>
+      <div class="tl-card-body">蜿蜒窄巷中藏著屋頂餐廳、手工陶瓷、蕾絲刺繡小店。推薦選一間屋頂露臺餐廳，邊用餐邊俯瞰海灣與衛城。</div>
+      <div class="tl-card-tip">10 人訂位建議提前確認 · 帶現金備用 · 新鮮海鮮與希臘沙拉是首選</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">13:35</div>
+    <div class="tl-spine"><div class="tl-dot dot-gray"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">集合 · 包車返回羅德島</span><span class="tl-badge badge-dur">車程約 55 分鐘</span></div>
+      <div class="tl-card-body">全員在停車場集合，包車返回羅德島舊城區附近下車。</div>
+      <div class="tl-card-tip">建議設鬧鐘提醒集合時間，10 人團容易散落各處</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div></div><div></div>
+    <div class="phase-divider"><span class="phase-divider-label">羅德島舊城 RHODES OLD TOWN</span><div class="phase-divider-line"></div></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14:30</div>
+    <div class="tl-spine"><div class="tl-dot dot-olive"></div><div class="tl-line"></div></div>
+    <div class="tl-card has-photo">
+      <div class="tl-card-head">
+        <span class="tl-card-title">羅德島舊城自由探索</span>
+        <span class="tl-badge badge-free">約 2.5 小時</span>
+        <span class="tl-badge badge-tip">UNESCO 世遺</span>
+      </div>
+      <div class="tl-card-body">歐洲保存最完好的中世紀城市之一。推薦路線：騎士街 → 大師宮外觀 → Mandraki 港口與風車 → 舊城市集巷弄。整個舊城步行範圍內即可全覽。</div>
+      <img class="tl-card-photo" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=900&q=82&auto=format&fit=crop" alt="Rhodes Old Town" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80&auto=format&fit=crop'">
+      <div class="tl-card-photo-credit">Unsplash · Free to use under Unsplash License</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">17:00</div>
+    <div class="tl-spine"><div class="tl-dot dot-gray"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">步行返回港口</span><span class="tl-badge badge-dur">約 10 分鐘</span></div>
+      <div class="tl-card-body">舊城至郵輪港口步行可達，從容返船。</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">17:10</div>
+    <div class="tl-spine"><div class="tl-dot dot-aegean"></div><div class="tl-line"></div></div>
+    <div class="tl-card">
+      <div class="tl-card-head"><span class="tl-card-title">回船 ✓</span><span class="tl-badge badge-dur">18:00 開船</span></div>
+      <div class="tl-card-body">預留 50 分鐘緩衝，從容登船，準備前往下一站 Mykonos。</div>
+    </div>
+  </div>
+
+</div>
+
+<section class="highlights">
+  <div class="highlights-inner">
+    <div class="highlights-eyebrow">HIGHLIGHTS · 亮點</div>
+    <h2 class="highlights-title">不可錯過的四個瞬間</h2>
+    <div class="highlights-grid">
+      <div class="hl-card">
+        <img class="hl-card-img" src="https://images.unsplash.com/photo-1759744869539-802c1b12b861?w=500&q=78&auto=format&fit=crop&crop=center" alt="Lindos viewpoint" loading="lazy">
+        <div class="hl-card-body"><div class="hl-num">01</div><div class="hl-title">全景觀景台</div><div class="hl-body">衛城＋白牆＋海灣一鏡收盡，10 分鐘的明信片構圖。</div></div>
+      </div>
+      <div class="hl-card">
+        <img class="hl-card-img" src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=500&q=78&auto=format&fit=crop&crop=top" alt="Lindos Acropolis" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1592861956120-e524fc739696?w=500&q=78&auto=format&fit=crop'">
+        <div class="hl-card-body"><div class="hl-num">02</div><div class="hl-title">林多斯衛城</div><div class="hl-body">千年要塞登頂俯瞰雅典娜神殿，9 月下旬人潮較少。</div></div>
+      </div>
+      <div class="hl-card">
+        <img class="hl-card-img" src="https://images.unsplash.com/photo-1519677584237-752f8853252e?w=500&q=78&auto=format&fit=crop" alt="St Paul's Bay" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&q=78&auto=format&fit=crop'">
+        <div class="hl-card-body"><div class="hl-num">03</div><div class="hl-title">聖保羅灣</div><div class="hl-body">隱密心形小灣，白色教堂傍水而立，步行 10 分鐘即達。</div></div>
+      </div>
+      <div class="hl-card">
+        <img class="hl-card-img" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=500&q=78&auto=format&fit=crop" alt="Rhodes Old Town" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&q=78&auto=format&fit=crop'">
+        <div class="hl-card-body"><div class="hl-num">04</div><div class="hl-title">中世紀舊城</div><div class="hl-body">UNESCO 世界遺產，騎士街、大師宮、Mandraki 港，步行即可全覽。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="notes">
+  <h2 class="notes-title">實用資訊</h2>
+  <div class="notes-grid">
+    <div class="note-card"><div class="note-label">交通方式</div><div class="note-val">私人包車（10 人座小巴）<br><strong>約 £325 / ~$410</strong><br>全程包車，時間自由</div></div>
+    <div class="note-card"><div class="note-label">衛城門票</div><div class="note-val">€20 / 人（非歐盟）<br>建議<strong>提前線上購票</strong><br>現場排隊可能等 15–30 分</div></div>
+    <div class="note-card"><div class="note-label">港口時間</div><div class="note-val">09:30 開放上岸<br><strong>18:00 開船</strong><br>建議 17:30 前回到港口</div></div>
+    <div class="note-card"><div class="note-label">穿著建議</div><div class="note-val">舒適步行鞋（必備）<br>衛城有 300 級台階<br>帽子與防曬乘</div></div>
+    <div class="note-card"><div class="note-label">用餐</div><div class="note-val">午餐於 Lindos 村<br>推薦<strong>屋頂露臺餐廳</strong><br>10 人建議提前訂位</div></div>
+    <div class="note-card"><div class="note-label">費用比較</div><div class="note-val">船上官方行程 $1,000<br>私人包車 <strong>~$410</strong><br>省下約 $590</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">VIRGIN VOYAGES · SCARLET LADY · GREEK ISLAND GLOW · 2026</div>
+  <div class="footer-right">DAY 4 OF 8 · RHODES, GREECE</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), 60); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.tl-item').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

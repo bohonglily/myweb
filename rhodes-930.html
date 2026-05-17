@@ -48,6 +48,9 @@
   .photo-strip-item:hover img { transform: scale(1.04); }
   .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1rem 0.75rem; background: linear-gradient(to top, rgba(10,25,40,0.82), transparent); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: rgba(255,255,255,0.8); }
   .photo-credit { position: absolute; bottom: 5px; right: 8px; font-family: 'DM Mono', monospace; font-size: 7.5px; color: rgba(255,255,255,0.28); }
+  .photo-strip-dots { display: none; justify-content: center; gap: 7px; margin-top: 0.8rem; margin-bottom: 4rem; }
+  .photo-strip-dots .ps-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sand-dark); transition: background 0.25s, transform 0.25s; }
+  .photo-strip-dots .ps-dot.active { background: var(--gold); transform: scale(1.4); }
 
   /* SECTION HEADER */
   .section-header { padding: 0 3rem 1.5rem; max-width: 880px; margin: 0 auto; }
@@ -107,8 +110,20 @@
 
   @media (max-width: 640px) {
     .hero { padding: 3rem 1.5rem; } .hero-ornament { display: none; } .hero-title { font-size: 3rem; }
-    .photo-strip { grid-template-columns: 1fr; height: auto; }
-    .photo-strip-item { height: 220px; } .photo-strip-item:nth-child(2), .photo-strip-item:nth-child(3) { display: none; }
+    .photo-strip {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      height: 260px;
+      gap: 10px;
+      padding: 0 1.5rem;
+      margin-bottom: 0;
+    }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .photo-strip-item { flex: 0 0 82vw; height: 260px; border-radius: 10px; scroll-snap-align: start; }
+    .photo-strip-dots { display: flex; }
     .intro, .section-header, .timeline-wrap, .notes, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     .highlights { padding: 3rem 1.5rem; }
     .tl-item { grid-template-columns: 54px 20px 1fr; gap: 0 0.8rem; } .tl-time { font-size: 10px; }
@@ -159,6 +174,11 @@
     <div class="photo-label">中世紀舊城 · MEDIEVAL OLD TOWN</div>
     <div class="photo-credit">Unsplash</div>
   </div>
+</div>
+<div class="photo-strip-dots">
+  <span class="ps-dot active"></span>
+  <span class="ps-dot"></span>
+  <span class="ps-dot"></span>
 </div>
 
 <div class="section-header">
@@ -352,6 +372,21 @@
     entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), 60); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.tl-item').forEach(el => obs.observe(el));
+
+  const strip = document.querySelector('.photo-strip');
+  const dots = document.querySelectorAll('.ps-dot');
+  if (strip && dots.length) {
+    strip.addEventListener('scroll', () => {
+      const items = [...strip.querySelectorAll('.photo-strip-item')];
+      const mid = strip.scrollLeft + strip.clientWidth / 2;
+      let active = 0, minDist = Infinity;
+      items.forEach((el, i) => {
+        const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - mid);
+        if (dist < minDist) { minDist = dist; active = i; }
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }, { passive: true });
+  }
 </script>
 </body>
 </html>
